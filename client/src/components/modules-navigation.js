@@ -6,18 +6,18 @@ import { humanReadableTimeFromSeconds } from '../utils/helpers';
 
 /**
  * Module Navigation: displays a list of modules titles
- * from a track and navigates to the modules page
+ * from a initiative and navigates to the modules page
  */
-const ModulesNav = ({ module, track }) => {
+const ModulesNav = ({ module, initiative }) => {
   return (
     <ModulesNavContainer>
       <ModuleTitle>
         <h4>
-          <Link to="../..">{track.title}</Link>
+          <Link to="../..">{initiative.title}</Link>
         </h4>
       </ModuleTitle>
       <ModulesList>
-        {track.modules.map((navModule) => (
+        {initiative.modules.map((navModule) => (
           <ModuleListItem key={`module_${navModule.id}`}>
             <div>
               <ModuleNavStyledLink to={`../${navModule.id}`}>
@@ -52,14 +52,14 @@ const ModulesNavContainer = styled.div({
   overflow: 'auto',
 });
 
-const trackTitleHeight = 70;
+const initiativeTitleHeight = 70;
 
 const ModuleTitle = styled.div({
   display: 'flex',
   position: 'sticky',
   fontSize: '1.6em',
   fontWeight: '400',
-  height: trackTitleHeight,
+  height: initiativeTitleHeight,
   alignItems: 'center',
   justifyContent: 'center',
   textAlign: 'center',
@@ -80,7 +80,7 @@ const ModulesList = styled.ul({
   margin: 0,
   padding: 0,
   overflowY: 'scroll',
-  height: `calc(100% - ${trackTitleHeight}px)`,
+  height: `calc(100% - ${initiativeTitleHeight}px)`,
 });
 
 const ModuleListItem = styled.li((props) => ({

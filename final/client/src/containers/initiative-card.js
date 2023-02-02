@@ -1,31 +1,30 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { colors, mq } from '../styles';
-import { humanReadableTimeFromSeconds } from '../utils/helpers';
 
 /**
- * Track Card component renders basic info in a card format
- * for each track populating the tracks grid homepage.
+ * Initiative Card component renders basic info in a card format
+ * for each Initiative populating the initiatives grid homepage.
  */
-const TrackCard = ({ track }) => {
-  const { title, thumbnail, author, length, modulesCount } = track;
+const InitiativeCard = ({ initiative }) => {
+  const { name, image, organization, description } = initiative;
 
   return (
     <CardContainer>
       <CardContent>
         <CardImageContainer>
-          <CardImage src={thumbnail} alt={title} />
+          <CardImage src={image} alt={name} />
         </CardImageContainer>
         <CardBody>
-          <CardTitle>{title || ''}</CardTitle>
+          <CardTitle>{name || ''}</CardTitle>
           <CardFooter>
-            <AuthorImage src={author.photo} />
-            <AuthorAndTrack>
-              <AuthorName>{author.name}</AuthorName>
-              <TrackLength>
-                {modulesCount} modules - {humanReadableTimeFromSeconds(length)}
-              </TrackLength>
-            </AuthorAndTrack>
+            <OrganizationImage src={organization.image} />
+            <OrganizationAndInitiative>
+              <OrganizationName>{organization.name}</OrganizationName>
+              <InitiativeDescription>
+                {description}
+              </InitiativeDescription>
+            </OrganizationAndInitiative>
           </CardFooter>
         </CardBody>
       </CardContent>
@@ -33,9 +32,9 @@ const TrackCard = ({ track }) => {
   );
 };
 
-export default TrackCard;
+export default InitiativeCard;
 
-/** Track Card styled components */
+/** Initiative Card styled components */
 const CardContainer = styled.div({
   borderRadius: 6,
   color: colors.text,
@@ -116,7 +115,7 @@ const CardFooter = styled.div({
   flexDirection: 'Row',
 });
 
-const AuthorImage = styled.img({
+const OrganizationImage = styled.img({
   height: 30,
   width: 30,
   marginRight: 8,
@@ -124,17 +123,17 @@ const AuthorImage = styled.img({
   objectFit: 'cover',
 });
 
-const AuthorAndTrack = styled.div({
+const OrganizationAndInitiative = styled.div({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
 });
 
-const AuthorName = styled.div({
+const OrganizationName = styled.div({
   lineHeight: '1em',
   fontSize: '1.1em',
 });
 
-const TrackLength = styled.div({
+const InitiativeDescription = styled.div({
   fontSize: '0.8em',
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup } from '../../utils/test-utils';
-import ModuleNav from '../modules-navigation';
+import ModuleDetail from '../module-detail';
 
 const mockModule = {
   id: 'l_1',
@@ -13,13 +13,13 @@ const mockModule = {
   length: 164,
 };
 
-const mockParentTrack = {
+const mockParentInitiative = {
   id: 'c_0',
   title: 'Cat-stronomy, an introduction',
   description: '# Pulchra vehi vidit misera sola armenta secabatur\n\n',
   thumbnail:
     'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
-  trackLength: 2377,
+  initiativeLength: 2377,
   modulesCount: 10,
   numberOfViews: 51,
   author: {
@@ -36,11 +36,11 @@ const mockParentTrack = {
   ],
 };
 
-describe('Modules Navigation View', () => {
+describe('Module Detail View', () => {
   // automatically unmount and cleanup DOM after the test is finished.
   afterEach(cleanup);
 
   it('renders without error', () => {
-    render(<ModuleNav module={mockModule} track={mockParentTrack} />);
+    render(<ModuleDetail module={mockModule} initiative={mockParentInitiative} />);
   });
 });

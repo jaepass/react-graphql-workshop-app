@@ -13,13 +13,13 @@ const mockModule = {
   length: 164,
 };
 
-const mockParentTrack = {
+const mockParentInitiative = {
   id: 'c_0',
   title: 'Cat-stronomy, an introduction',
   description: '# Pulchra vehi vidit misera sola armenta secabatur\n\n',
   thumbnail:
     'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
-  trackLength: 2377,
+  initiativeLength: 2377,
   modulesCount: 10,
   numberOfViews: 51,
   author: {
@@ -41,6 +41,6 @@ describe('Modules Navigation View', () => {
   afterEach(cleanup);
 
   it('renders without error', () => {
-    render(<ModuleNav module={mockModule} track={mockParentTrack} />);
+    render(<ModuleNav module={mockModule} initiative={mockParentInitiative} />);
   });
 });

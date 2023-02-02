@@ -2,23 +2,23 @@ const { ApolloServer } = require('apollo-server');
 const typeDefs = require('./schema');
 
 const mocks = {
-  Query: () => ({
-    tracksForHome: () => [...new Array(9)],
-  }),
-  Track: () => ({
-    id: () => 'track_01',
-    title: () => 'Astro Kitty, Space Explorer',
-    author: () => {
+	Query: () => ({
+	    initativesForMain: () => [...new Array(6)],
+	  }),
+   Initiative: () => ({
+    id: () => "initiative_01",
+    name: () => "Ocean Risk Alliance",
+    organization: () => {
       return {
-        name: 'Grumpy Cat',
-        photo:
-          'https://res.cloudinary.com/dety84pbu/image/upload/v1606816219/kitty-veyron-sm_mctf3c.jpg',
+        name: "Ocean Risk",
+				website: "https://www.oceanriskalliance.org/",
+        image:
+          "https://supportclimateaction.com/internal_resources/1",
       };
     },
-    thumbnail: () =>
-      'https://res.cloudinary.com/dety84pbu/image/upload/v1598465568/nebula_cat_djkt9r.jpg',
-    length: () => 1210,
-    modulesCount: () => 6,
+    image: () =>
+      "https://supportclimateaction.com/internal_resources/1",
+    description: () => "The Ocean Risk and Resilience Action Alliance (ORRAA) pioneers innovative finance products that drive investment in marine and coastal natural capital, reduce ocean and climate risks, and build resilience in coastal communities.",
   }),
 };
 
